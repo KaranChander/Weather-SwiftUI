@@ -11,6 +11,7 @@ import CoreLocation
 
 class WeatherHomeViewModel: ObservableObject {
     
+    // MARK: - Properties
     let service: WeatherHomeServiceProtocol
     
     @Published var weatherDetail: Weather?
@@ -22,6 +23,7 @@ class WeatherHomeViewModel: ObservableObject {
     var subscription: Set<AnyCancellable> = []
 
 
+    // MARK: - Methods
     init(service: WeatherHomeServiceProtocol = WeatherHomeService(),
          userManager: UserManager = UserManager(),
          locationManager: LocationManagerProtocol = LocationManager(userManager: UserManager()))  {
@@ -111,6 +113,7 @@ class WeatherHomeViewModel: ObservableObject {
     }
     
     
+    //I would've added it to a common/helper class if i had more time
     func getWeatherIcon(icon: WeatherIcon) -> String {
             switch icon {
             case .clearSkyDay:
